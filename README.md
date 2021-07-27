@@ -1,7 +1,34 @@
+# VarCal
 
-VarCal is python script to call SNPs. It takes BAM and reference fasta as input to call variants, which are reported in a tabula format.
+## Description
 
-It has the following columns:
+VarCal is a simple python script to call SNPs. 
+
+It takes BAM and reference fasta as input to call variants, which are reported in a tabular format.
+
+## Method
+
+The tool can be run downloading the required environment file (env.yml) for conda and the pythin script (varcall.py).
+
+The steps are given below:
+
+```
+$ conda env create -f env.yml 
+$ conda activate varcall
+$ python3 varcall.py -h
+usage: varcall.py [-h] -b BAM -r REF -o OUT
+Generate variant calls from a BAM file using ref fasta
+optional arguments:
+  -h, --help         show this help message and exit
+  -b BAM, --bam BAM  bam file
+  -r REF, --ref REF  reference fasta
+  -o OUT, --out OUT  file name to output variant calls
+ 
+```
+
+## Output columns
+
+The output is a tab delimited text file and it has the following columns:
 1. Chr - chromosome
 2. POS - position of the variant
 3. REF - Reference base
@@ -22,17 +49,4 @@ The following filters are applied by default:
 3. Minimum variant-supporting coverage of 2
 4. Minimum average base quality of q15
 5. Minimum variant allele frequency of 0.01
-
-```
-$ conda env create -f env.yml 
-$ conda activate varcall
-$ python3 varcall.py -h
-usage: varcall.py [-h] -b BAM -r REF -o OUT
-Generate variant calls from a BAM file using ref fasta
-optional arguments:
-  -h, --help         show this help message and exit
-  -b BAM, --bam BAM  bam file
-  -r REF, --ref REF  reference fasta
-  -o OUT, --out OUT  file name to output variant calls
-```
 
